@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class RegisterResponse {
-    String login;
+    String token;
 
-    public RegisterResponse(String login) {
-        this.login = login;
+    public RegisterResponse(String token) {
+        this.token = token;
     }
 }
