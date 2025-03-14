@@ -12,7 +12,7 @@ public class AddTargetRequest {
     String name;
     String description;
     String photo;
-    String targetPrice;
+    double targetPrice;
 
     @JsonFormat(pattern = "MM/dd/yyyy")
     LocalDate endDate;

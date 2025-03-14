@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cc.whyy0u.entity.target.TargetEntity;
 import cc.whyy0u.repository.target.TargetRepository;
+import cc.whyy0u.utils.TargetResponseUtils;
 
 @Service
 public class TargetService {
@@ -23,6 +24,10 @@ public class TargetService {
 
      public Page<TargetEntity> getTargetsByUser(Long userId, Pageable pageable) {
         return targetRepository.findByCreatorId(userId, pageable);
+    }
+
+    public Page<TargetResponseUtils> convertToTargetResponse(Page<TargetEntity> targetEntities) {
+        return targetEntities.map(targetEntity -> new TargetResponseUtils(targetEntity));
     }
     
 }

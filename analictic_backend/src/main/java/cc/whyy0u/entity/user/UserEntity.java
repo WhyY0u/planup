@@ -1,7 +1,10 @@
 package cc.whyy0u.entity.user;
 
+import cc.whyy0u.entity.target.ValuteType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,4 +29,8 @@ public class UserEntity {
 
   @Column(name = "login", unique = true, nullable = false, length = 255)
   String login;
+
+   @Column(name = "valuteType", unique = false, nullable = false)
+   @Enumerated(EnumType.STRING)  
+   ValuteType valuteType;
 } 

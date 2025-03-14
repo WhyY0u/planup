@@ -2,6 +2,7 @@ package cc.whyy0u.utils;
 
 import java.time.LocalDate;
 
+import cc.whyy0u.entity.target.TargetEntity;
 import cc.whyy0u.entity.target.ValuteType;
 import lombok.Data;
 
@@ -11,8 +12,16 @@ public class TargetResponseUtils {
     String name;
     String description;
     String photo;
-    String targetPrice;
-    String curntPrice;
+    double targetPrice;
+    double curntPrice;
     LocalDate endDate;
-    ValuteType valuteType;
+
+    public TargetResponseUtils(TargetEntity entity) {
+        this.name = entity.getName();
+        this.description = entity.getDescription();
+        this.photo = entity.getPhoto();
+        this.targetPrice = entity.getTargetPrice();
+        this.curntPrice = entity.getCurntPrice();
+        this.endDate = entity.getEndDate();
+    }
 }

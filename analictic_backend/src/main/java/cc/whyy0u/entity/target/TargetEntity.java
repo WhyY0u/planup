@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import cc.whyy0u.controller.user.request.AddTargetRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,17 +31,13 @@ public class TargetEntity {
     String photo;
 
     @Column(name = "targetPrice", unique = false, nullable = false, length = 255)
-    String targetPrice;
+    double targetPrice;
 
     @Column(name = "curntPrice", unique = false, nullable = false, length = 255)
-    String curntPrice;
+    double curntPrice;
 
     @Column(name = "endDate", unique = false, nullable = false)
     LocalDate endDate;
-
-    @Column(name = "valuteType", unique = false, nullable = false)
-    @Enumerated(EnumType.STRING)  
-    ValuteType valuteType;
 
     @Column(name = "creator_id", unique = true, nullable = false)
     Long creator_id;
@@ -54,9 +48,8 @@ public class TargetEntity {
         this.description = addTargetRequest.getDescription();
         this.photo = addTargetRequest.getPhoto();
         this.endDate = addTargetRequest.getEndDate();
-        this.valuteType = addTargetRequest.getValuteType();
         this.targetPrice = addTargetRequest.getTargetPrice();
-        this.curntPrice = "0";
+        this.curntPrice = 0.0f;
         this.creator_id = create_id;
     }
 }
