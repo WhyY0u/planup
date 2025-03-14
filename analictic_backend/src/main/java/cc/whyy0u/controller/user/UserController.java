@@ -33,7 +33,6 @@ public class UserController {
     @Autowired
     TargetService targetService;
 
-
     @PostMapping("/addtarget")
     public ResponseEntity<?> addTarget(@RequestBody AddTargetRequest request) {    
         UserEntity user = userService.getCurrentUser();
